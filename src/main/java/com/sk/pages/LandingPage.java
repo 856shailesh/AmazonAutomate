@@ -20,4 +20,8 @@ public class LandingPage {
         eleUtil.doClick(SignIn);
         return new LoginPage(driver);
     }
+
+    public String getLoginPageTitle() {
+        return driver.getTitle();
+    }
 }

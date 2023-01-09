@@ -17,7 +17,9 @@ public class LoginPage {
         eleUtil = new ElementUtil(this.driver);
     }
 
-
+    public String getLoginPageTitle(){
+        return driver.getTitle();
+    }
 
     public void doLogin(String uName,String pwd){
         eleUtil.doSendKeys(email,uName);
