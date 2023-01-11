@@ -1,6 +1,8 @@
 package com.sk.utils;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +24,20 @@ public class ElementUtil {
         return ele;
     }
 
+    public List<WebElement> getElements(By locator) {
+        return driver.findElements(locator);
+    }
+
+    public List<String> getElementsText(By locator) {
+        List<WebElement> all = driver.findElements(locator);
+        List<String> allText = new ArrayList<String>();
+        for (WebElement text : all) {
+            String t = text.getText();
+            allText.add(t);
+        }
+        return allText;
+    }
+
     public void doSendKeys(By locator, String value) {
         WebElement ele = getElement(locator);
         ele.clear();
@@ -35,6 +51,10 @@ public class ElementUtil {
 
     public String doGetTitle() {
         return driver.getTitle();
+    }
+
+    public String doGetText(By locator) {
+        return driver.findElement(locator).getText();
     }
 
 }
